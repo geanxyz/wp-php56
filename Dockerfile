@@ -62,9 +62,10 @@ RUN sed -i -f /opt/app-root/etc/httpdconf.sed /opt/rh/httpd24/root/etc/httpd/con
 USER 1001
 
 # Install Wordpress
-ADD https://wordpress.org/latest.tar.gz /opt/app-root/src/latest.tar.gz
-RUN cd /opt/app-root/src/ && tar xvf latest.tar.gz && rm latest.tar.gz && \
+RUN curl https://wordpress.org/latest.tar.gz -o /opt/app-root/src/latest.tar.gz && \
+    cd /opt/app-root/src/ && tar xvf latest.tar.gz && rm latest.tar.gz && \
     mv /opt/app-root/src/wordpress /opt/app-root/html && \
+    chmod -R a+rwx /opt/app-root/html && \
     chown -R 1001:0 /opt/app-root/html
 
 # Set the default CMD to print the usage of the language image
