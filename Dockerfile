@@ -68,7 +68,7 @@ RUN curl https://wordpress.org/latest.tar.gz -o /opt/app-root/src/latest.tar.gz 
     chmod -R a+rwx /opt/app-root/html && \
     chown -R 1001:0 /opt/app-root/html && \
     ls -l /opt/app-root/ && \
-    ls -l /opt/app-rppt/html
+    ls -l /opt/app-root/html
 
 # Set the default CMD to print the usage of the language image
 CMD $STI_SCRIPTS_PATH/run
