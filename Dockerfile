@@ -65,6 +65,7 @@ USER 1001
 RUN curl https://wordpress.org/latest.tar.gz -o /opt/app-root/src/latest.tar.gz && \
     cd /opt/app-root/src/ && tar xvf latest.tar.gz && rm latest.tar.gz && \
     mv /opt/app-root/src/wordpress /opt/app-root/html && \
+    cp /opt/app-root/src/geainfo.php /opt/app-root/html/ && \
     chmod -R a+rwx /opt/app-root/html && \
     chown -R 1001:0 /opt/app-root/html && \
     ls -l /opt/app-root/ && \
