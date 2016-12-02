@@ -21,8 +21,10 @@ LABEL Name="rhscl/php-56-rhel7" \
       Architecture="x86_64"
 
 # Install Apache httpd and PHP
-RUN yum-config-manager --enable rhel-server-rhscl-7-rpms && \
-    yum-config-manager --enable rhel-7-server-optional-rpms && \
+#RUN yum-config-manager --enable rhel-server-rhscl-7-rpms && \
+#    yum-config-manager --enable rhel-7-server-optional-rpms && \
+RUN subscription-manager repos --enable=rhel-server-rhscl-7-rpms && \
+    subscription-manager repos --enable=rhel-7-server-optional-rpms && \
     INSTALL_PKGS="rh-php56 rh-php56-php rh-php56-php-mysqlnd rh-php56-php-pgsql rh-php56-php-bcmath \
                   rh-php56-php-gd rh-php56-php-intl rh-php56-php-ldap rh-php56-php-mbstring rh-php56-php-pdo \
                   rh-php56-php-pecl-memcache rh-php56-php-process rh-php56-php-soap rh-php56-php-opcache rh-php56-php-xml \
